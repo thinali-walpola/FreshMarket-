@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<title>Fresh Market</title>
+</head>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+}
+
+/* CONTAINER */
+.container{
+    max-width:1200px;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap:30px;
+}
+
+/* CARD */
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom:20px;
+}
+
+/* TITLES */
+h1{
+    margin-bottom:20px;
+}
+
+h2{
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+/* INPUTS */
+label{
+    font-size:14px;
+    color:#333;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+}
+
+input:focus, select:focus{
+    border-color:#16a34a;
+}
+
+/* ROW (2 columns) */
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.summary-item{
+	display:flex;
+	justify-content:space-between;
+	margin-bottom:10px;
+}
+.total{
+	font-weight:bold;
+	font-size:18px;
+	color:#16a34a;
+}
+button{
+	width:100%;
+	padding:14px;
+	background:#16a34a;
+	color:#fff;
+	border:none;
+	border-radius:10px;
+	font-size:16px;
+	cursor:pointer;
+	margin-top:15px;
+}
+button:hover{background:#15803d;}
+
+</style>
+<body>
+	<!-- NAVBAR -->
+
+	<div class="navbar">
+
+		<div class="logo">
+			<i class="fa-solid fa-leaf"></i> FreshMarket
+		</div>
+
+		<ul class="nav-links">
+			<li><a href="index.html" class="active">Home</a></li>
+			<li><a href="products.html">Products</a></li>
+			<li><a href="about.html">About</a></li>
+		</ul>
+
+		<div class="nav-icons">
+			<i class="fa-solid fa-search"></i>
+			<i class="fa-solid fa-cart-shopping"onclick="window.location.href='add_cart.html'"></i>
+		</div>
+
+	</div>
+<header>
+<div class="container"style="margin-top: 100px;">
+
+    <!-- LEFT SIDE -->
+    <div>
+
+        <h1 >Checkout</h1>
+
+        <!-- CONTACT -->
+        <div class="card">
+            <h2>Contact Information</h2>
+            <label>Email Address</label>
+            <input type="email" id="email">
+        </div>
+
+        <!-- SHIPPING -->
+        <div class="card">
+            <h2>Shipping Address</h2>
+
+            <div class="row">
+                <div>
+                    <label>First Name</label>
+                    <input type="text" id="fname">
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input type="text" id="lname">
+                </div>
+            </div>
+
+            <label>Street Address</label>
+            <input type="text" id="address">
+
+            <div class="row">
+                <div>
+                    <label>City</label>
+                    <input type="text" id="city">
+                </div>
+                <div>
+                    <label>State</label>
+                    <input type="text" id="state">
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>ZIP Code</label>
+                    <input type="text" id="zip">
+                </div>
+                <div>
+                    <label>Country</label>
+                    <select id="country">
+                        <option>United States</option>
+                        <option>Sri Lanka</option>
+                        <option>India</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+  	
+  <!-- RIGHT SIDE: ORDER SUMMARY -->
+  	<div class="card">
+    	<h2>Order Summary</h2>
+    	<div id="orderItems"></div>
+    	<hr>
+    	<div class="summary-item"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+    	<div class="summary-item"><span>Shipping</span><span id="shipping">$0.00</span></div>
+    	<hr>
+    	<div class="summary-item total"><span>Total</span><span id="total">$0.00</span></div>
+    	<button id="placeOrderBtn">Place Order</button>
+  	</div>
+
+</div>
+
+	<div class="footer">
+
+		<div>
+
+			<h2>FreshMarket</h2>
+
+			<p>
+				Your trusted source for fresh, organic,
+				and locally-sourced food products.
+			</p>
+
+		</div>
+
+
+		<div>
+
+			<h2>Quick Links</h2>
+
+			<ul>
+				<li><a href="#">Shop All Products</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">My Account</a></li>
+			</ul>
+
+		</div>
+
+
+		<div>
+
+			<h2>Customer Service</h2>
+
+			<ul>
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">Shipping Information</a></li>
+				<li><a href="#">Returns & Refunds</a></li>
+				<li><a href="#">FAQ</a></li>
+			</ul>
+
+		</div>
+
+
+		<div>
+
+			<h2>Stay Connected</h2>
+			<p>
+Subscribe to our newsletter for exclusive <br>offers and updates.</p>
+			<div class="social-icons">
+
+				<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+				<a href="#"><i class="fab fa-instagram"></i></a>
+
+				<a href="#"><i class="fab fa-twitter"></i></a>
+
+				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div class="footer-bottom">
+
+		Copyright © 2026 Disansa Web.
+		All Rights Reserved.
+
+	</div>
+
+<script>
+
+// Load cart and totals from localStorage
+window.addEventListener("DOMContentLoaded", () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const subtotal = parseFloat(localStorage.getItem("cartSubtotal")) || 0;
+    const shipping = parseFloat(localStorage.getItem("cartShipping")) || 0;
+    const total = parseFloat(localStorage.getItem("cartTotal")) || 0;
+
+    const orderContainer = document.getElementById("orderItems");
+    const subtotalElem = document.getElementById("subtotal");
+    const shippingElem = document.getElementById("shipping");
+    const totalElem = document.getElementById("total");
+
+    if(cart.length === 0){
+        orderContainer.innerHTML = "<p>Your cart is empty.</p>";
+    } else {
+        cart.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("summary-item");
+            div.innerHTML = `
+                <div>${item.name} <br><small>Qty: ${item.qty}</small></div>
+                <div>$${(item.price * item.qty).toFixed(2)}</div>
+            `;
+            orderContainer.appendChild(div);
+        });
+    }
+
+    subtotalElem.innerText = "$" + subtotal.toFixed(2);
+    shippingElem.innerText = "$" + shipping.toFixed(2);
+    totalElem.innerText = "$" + total.toFixed(2);
+});
+
+// Place Order Button
+document.getElementById("placeOrderBtn").addEventListener("click", () => {
+    const email = document.getElementById("email").value;
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const address = document.getElementById("address").value;
+
+    if(!email || !fname || !lname || !address){
+        alert("Please fill all required fields!");
+        return;
+    }
+
+    alert("Order placed successfully 🎉");
+    localStorage.removeItem("cart");
+    localStorage.removeItem("cartSubtotal");
+    localStorage.removeItem("cartShipping");
+    localStorage.removeItem("cartTotal");
+    window.location.href = "index.html";
+});
+</script>
+</body>
+</html>
