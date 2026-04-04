@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresh Market</title>
+<link rel="stylesheet" type="text/css" href="style-03.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i>FreshMarket
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="products.html" >Products</a></li>
+            <li><a href="about.html" >About</a></li>
+        </ul>
+
+        <div class="nav-icons">
+          <!-- SEARCH -->
+          <span>
+            <i class="fa-solid fa-search" id="searchIcon"></i>
+            
+          </span>
+          
+          <!-- CART -->
+          <span>
+            <i class="fa-solid fa-cart-shopping"onclick="window.location.href='add_cart.html'"></i>
+          </span>
+
+        </div>
+      </div>
+</header>
+    <div class="login-container">
+        <form action="/submit-login" method="POST" class="login-form">
+            <i class="fa-solid fa-circle-user"></i>
+            <h2>Create Account</h2>
+            <p>Join FreshMarket for exclusive offers</p>
+            
+            <div class="input-group">
+                <label for="username">Name</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="password" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Create Accountant</button>
+            <div class="form-footer">
+                <a href="#">Already have an account? Sign in</a>
+                <p>Note: This is a demo login. Use any email and password to access your account.</p>
+            </div>
+        </form>
+    </div>
+</script>
+</body>
+</html>
