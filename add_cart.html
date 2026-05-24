@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresh Market</title>
+
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f1f5f9;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  z-index:1000;
+}
+
+/* NAVBAR 
+.navbar{
+  height:100%;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+}*/
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;   /* always above everything */
+    padding:0px 80px;
+    border-bottom:3px solid #00ab41;
+    width: 100%;
+}
+.logo{
+    font-size:22px;
+    font-weight:700;
+    color:#009900;
+}
+
+.logo i{
+    margin-right:6px;
+}
+
+/* NAV LINKS */
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+
+.nav-links a{
+    display: block;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+}
+.nav-links a:hover{
+    color: #00e600;
+}
+
+.nav-links a.active{
+    color: #00e600;
+}
+/* ICONS */
+.nav-icons{
+    display:flex;
+    gap:20px;
+    font-size:18px;
+}
+.nav-icons i:hover{
+    color: #00e600;
+}
+
+.nav-links {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.menu-icon {
+    display: none;
+}
+@media (max-width: 600px) {
+    .navbar{
+        padding:15px;
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .nav-links{
+        width:100%;
+        display:none;
+        flex-direction:column;
+        gap:15px;
+        margin-top:20px;
+        text-align:center;
+    }
+
+    .nav-links.responsive{
+        display:flex;
+    }
+
+    .nav-links a{
+        font-size:14px;
+    }
+
+    .menu-icon{
+        display:block;
+        font-size:22px;
+        cursor:pointer;
+    }
+
+    .nav-icons{
+        gap:10px;
+        font-size:16px;
+    }
+    .menu-icon{
+        display:block;
+        font-size:22px;
+        cursor:pointer;
+    }
+}
+
+.sec{
+    max-width:1100px;
+    margin:80px auto;
+    padding:20px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* IMAGE */
+.cart-item img {
+    width: 80px;
+    border-radius: 10px;
+}
+
+/* DETAILS COLUMN */
+.cart-details {
+    flex: 1;
+}
+
+/* TEXT STYLE */
+.category {
+    color: gray;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* BOTTOM ROW */
+.bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* QTY BUTTON */
+.cart-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-qty button {
+    width: 30px;
+    height: 30px;
+    background: #00ab41;
+    color: white;
+    border: none;
+}
+.cart-qty button:hover{
+    background: #006600;
+}
+/* REMOVE BUTTON */
+.remove-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+/* RIGHT PRICE */
+.item-total {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.summary{
+    margin-top: 50px;
+    margin-right: 0px;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+}
+
+.summary-row,
+.summary-total{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+}
+
+.summary-total{
+    font-size:20px;
+    color:green;
+}
+
+button{
+    cursor:pointer;
+}
+
+ .checkout-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #00ab41;
+    border-radius: 10px;
+}
+
+.cart-qty button {
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+}
+</style>
+<body>
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> FreshMarket
+        </div>
+
+        <ul class="nav-links" id="myTopnav">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <i class="fa-solid fa-search"></i>
+
+            <i class="fa-solid fa-cart-shopping"
+            onclick="window.location.href='add_cart.html'"></i>
+        </div>
+
+        <!-- HAMBURGER -->
+        <div class="menu-icon" onclick="myFunction()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+
+<div class="sec">
+    <h1>Shopping Cart</h1>
+    <div class="cart-wrapper">
+
+        <div id="cartItems"></div>
+
+        <div class="summary">
+            <h3>Order Summary</h3>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>FREE</span>
+            </div>
+
+            <hr>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="total">$0.00</span>
+            </div>
+
+            <button class="checkout-btn" style="background: #00ab41; color:white;border: none; margin-bottom:30px;" onclick="window.location.href='payment.html'">Proceed to Checkout</button>
+            
+            <a href="products.html" style="color: #00ab41; text-align: center; text-decoration:none; margin-left:450px; font-weight: 600; font-size:16px;">Continue Shopping</a>
+    </div>
+
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

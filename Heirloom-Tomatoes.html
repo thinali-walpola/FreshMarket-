@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fresh Market</title>
+
+    <link rel="stylesheet" href="style-02.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> FreshMarket
+        </div>
+
+        <ul class="nav-links" id="myTopnav">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <i class="fa-solid fa-search"></i>
+
+            <i class="fa-solid fa-cart-shopping"
+            onclick="window.location.href='add_cart.html'"></i>
+        </div>
+
+        <!-- HAMBURGER -->
+        <div class="menu-icon" onclick="myFunction()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+</header>
+<button onclick="goBack()" class="back-btn">
+   <i class="fa-solid fa-arrow-left"></i>
+   Back to Products
+</button>
+
+<div class="flex-container"data-name="Heirloom Tomatoes"
+     data-price="6.99"
+     data-img="photo-1560433802-62c9db426a4d.jpg">
+    <div>
+        <img src="photo-1560433802-62c9db426a4d.jpg">
+    </div>
+    <div class="description">        
+        <p class="des">
+            <span class="p-class">Fresh Produce</span><br>
+            <span class="h2">Heirloom Tomatoes</span><br>
+            <span class="price" >$6.99
+            <span style="font-size:18px; color: gray; font-weight: 500;">/ lb</span>
+        </p>
+        <p>
+            <span class="h5">Description</span><br>
+            <span class="des-1">Colorful heirloom tomatoes grown from heritage seeds. Sweet, complex flavor perfect for salads and sandwiches.</span>
+        </p>
+        <p>
+            <span class="h5">Weight</span><br>
+            <span class="des-1">1 lb</span>
+        </p>
+        <p><span class="h5">Nutrition Information</span></p>
+
+        <div class="row">
+            <div class="col">
+                <p>
+                    <span class="h5">Calories</span><br>
+                    <span class="des-1">32</span>
+                </p>
+                <p>
+                    <span class="h5">Carbs</span><br>
+                    <span class="des-1">7g</span>
+                </p>
+            </div>
+
+            <div class="col">
+                <p>
+                    <span class="h5">Protein</span><br>
+                    <span class="des-1">1.5g</span>
+                </p>
+                <p>
+                    <span class="h5">Fat</span><br>
+                    <span class="des-1">0.4g</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="cart-box">
+            <span class="h5">Quantity:</span>
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+        </div>
+        
+        <button class="addcart">
+            <i class="fa-solid fa-cart-shopping"></i>Add to Cart
+        </button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
